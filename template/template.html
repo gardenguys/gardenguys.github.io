@@ -61,8 +61,8 @@
 
   <!-- Navigation bar -->
   <nav class="navbar bg-dark navbar-dark navbar-expand-md fixed-top">
-    <a href="../index.html" class="navbar-brand"><img src="../assets/img/logo/nav.png" width="40" height="40" class="mx-1"
-        alt="Garden Guys Logo">
+    <a href="../index.html" class="navbar-brand"><img src="../assets/img/logo/nav.png" width="40" height="40"
+        class="mx-1" alt="Garden Guys Logo">
       Garden Guys</a>
     <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
@@ -100,8 +100,8 @@
   </nav>
 
   <!-- Main jumbotron -->
-    <!-- Main jumbotron -->
-    <section id="section-landing"
+  <!-- Main jumbotron -->
+  <section id="section-landing"
     class="jumbotron jumbotron-fluid text-white d-flex justify-content-center align-items-center">
     <div class="container text-center">
       <h1 class="display-1 text-white" style="text-shadow: 1px 1px 2px white;">Template title</h1>
@@ -109,12 +109,13 @@
 
       <p class="lead">template description</p>
       <!-- <p><strong>Schedule your appointment:</strong></p> -->
-      <a href="../index.html#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Schedule
+      <a href="../index.html#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf"
+          aria-hidden="true"></i> Schedule
         your appointment</a>
     </div>
   </section>
 
-  
+
   <section id="section-template">
     <div class="container ">
       <h2 class="display-4 text-center text-dark">Template</h2>
@@ -145,25 +146,24 @@
     <hr>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container py-3 py-sm-5">
       <div class="row">
         <div class="col-12 col-sm-6 col-lg-3">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" target="_blank">Home</a></li>
+            <li><a href="#section-landing" >Home</a></li>
             <li><a href="#" target="_blank">What's new?</a></li>
-            <li><a href="#" target="_blank">Support</a></li>
+            <li><a href="mailto:info@gardenguys.in">Support</a></li>
             <li><a href="#" target="_blank">My account</a></li>
-            <li><a href="#" target="_blank">Cancel subscription</a></li>
+            <li><a href="#" data-target="#cancelSubscriptionModal" data-toggle="modal" >Cancel subscription</a></li>
           </ul>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
           <h5>Information</h5>
           <ul class="list-unstyled">
             <li><a href="#" target="_blank">About us</a></li>
-            <li><a href="#" target="_blank">Jobs</a></li>
+            <li><a href="../jobs/open-jobs.html" target="_blank">Jobs</a></li>
             <li><a href="#" target="_blank">Press info</a></li>
             <li><a href="#" target="_blank">Contact</a></li>
             <li><a href="#" target="_blank">Partnership</a></li>
@@ -192,6 +192,8 @@
             Uttar Pradesh, 226010<br>
             <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
               href="tel:+917376787856">(+91) 737-678-7856</a><br>
+              <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
+              href="tel:+919219025279">(+91) 921-902-5279</a><br>
             <i class="fa fa-fw fa-inbox text-muted" aria-hidden="true"></i> <span class="sr-only">Mail:</span><a
               href="mailto:info@gardenguys.in">info@gardenguys.in</a>
           </address>
@@ -214,6 +216,30 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal fade text-white" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                To cancel your existing subscription, please contact us using the following details:
+                <br><br>
+                Email: <a href="mailto:support@gardenguys.in">support@gardenguys.in</a>
+                <br>
+                Phone: <a href="tel:+917376787856">+91-7376-7878-56</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -261,12 +261,7 @@
         </tfoot>
       </table>
 
-
-
-      <!-- End of the div with text-center class -->
-
       <!-- Bootstrap Modal (Popup) -->
-      <!-- Modal -->
       <div class="modal fade text-white" id="confirmationModal" tabindex="-1" role="dialog"
         aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -722,11 +717,11 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#" target="_blank">Home</a></li>
+            <li><a href="#section-landing" >Home</a></li>
             <li><a href="#" target="_blank">What's new?</a></li>
-            <li><a href="#" target="_blank">Support</a></li>
+            <li><a href="mailto:info@gardenguys.in">Support</a></li>
             <li><a href="#" target="_blank">My account</a></li>
-            <li><a href="#" target="_blank">Cancel subscription</a></li>
+            <li><a href="#" data-target="#cancelSubscriptionModal" data-toggle="modal" >Cancel subscription</a></li>
           </ul>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
@@ -762,6 +757,8 @@
             Uttar Pradesh, 226010<br>
             <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
               href="tel:+917376787856">(+91) 737-678-7856</a><br>
+              <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
+              href="tel:+919219025279">(+91) 921-902-5279</a><br>
             <i class="fa fa-fw fa-inbox text-muted" aria-hidden="true"></i> <span class="sr-only">Mail:</span><a
               href="mailto:info@gardenguys.in">info@gardenguys.in</a>
           </address>
@@ -784,6 +781,29 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal fade text-white" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                To cancel your existing subscription, please contact us using the following details:
+                <br><br>
+                Email: <a href="mailto:support@gardenguys.in">support@gardenguys.in</a>
+                <br>
+                Phone: <a href="tel:+917376787856">+91-7376-7878-56</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
