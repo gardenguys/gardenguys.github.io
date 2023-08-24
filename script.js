@@ -3,73 +3,91 @@ var DISCOUNTED_PRICE = 0;
 function calculatePrice() {
   var durationOfVisit = document.getElementById("durationOfVisit").value;
   var frequencyOfVisit = document.getElementById("frequencyOfVisit");
-  var durationOfContract = document.getElementById("durationOfContract").value;
-  var actualPrice = 0;
+  var durationOfSubscription = document.getElementById(
+    "durationOfSubscription"
+  ).value;
 
+  var actualPrice = 0;
+  var discount = 25;
   var freq = 1;
   var duration = 1;
 
   // Set actualPrice based on selected options
-  if (durationOfVisit === "halfDay") {
-    actualPrice = 699;
+  if (durationOfVisit == "lessThanHalfDay") {
+    actualPrice = 464;
+  } else if (durationOfVisit === "halfDay") {
+    actualPrice = 731;
   } else if (durationOfVisit === "fullDay") {
-    actualPrice = 999;
+    actualPrice = 1064;
   }
 
   // Calculate the actual total price
   var actualTotalPrice = actualPrice;
 
-  // Calculate the discounted total price
-  var discount = 0;
+  // Reset the "Frequency of Visit" options if "Single visit" is selected as the duration of contract
+  if (durationOfSubscription === "singleVisit") {
+    frequencyOfVisit.disabled = true;
 
+    if (frequencyOfVisit.options[0].value !== "onceAMonth") {
+      var onceAMonthOption = new Option("Once a month", "onceAMonth");
+      onceAMonthOption.id = "onceAMonth"; // Set the id attribute
+      frequencyOfVisit.options.add(onceAMonthOption, 0); // Add at the beginning
+    }
+    // Disable the "Frequency of Visit" options
+    frequencyOfVisit.selectedIndex = 0;
+    freq = 1;
+    duration = 1;
+  } else {
+    // Enable the "Frequency of Visit" options
+    frequencyOfVisit.disabled = false;
+  }
+
+  // Dynamically add or remove "Once a month" option based on subscription duration
+  if (durationOfSubscription === "oneMonth") {
+    if (frequencyOfVisit.options[0].value === "onceAMonth") {
+      frequencyOfVisit.options[0].remove(); // Remove "Once a month" option
+    }
+    freq = 2;
+  } else {
+    // Add "Once a month" option if it doesn't exist
+    if (frequencyOfVisit.options[0].value !== "onceAMonth") {
+      var onceAMonthOption = new Option("Once a month", "onceAMonth");
+      onceAMonthOption.id = "onceAMonth"; // Set the id attribute
+      frequencyOfVisit.options.add(onceAMonthOption, 0); // Add at the beginning
+    }
+  }
+
+  // Calculate the discounted total price
   if (frequencyOfVisit.value === "onceAMonth") {
     freq = 1;
   } else if (frequencyOfVisit.value === "twiceAMonth") {
     freq = 2;
-    discount += 2;
   } else if (frequencyOfVisit.value === "fourTimesAMonth") {
     freq = 4;
-    discount += 5;
   }
 
   // Adjust discounted total price based on contract duration
-  if (durationOfContract === "threeMonths") {
-    duration = 3;
-    discount += 10;
-  } else if (durationOfContract === "sixMonths") {
-    duration = 6;
-    discount += 15;
-  } else if (durationOfContract === "twelveMonths") {
-    duration = 12;
-    discount += 30;
-  }
-
-  // Reset the "Frequency of Visit" options if "Single visit" is selected as the duration of contract
-  if (durationOfContract === "singleVisit") {
-    frequencyOfVisit.value = "onceAMonth"; // Set the value to "onceAMonth"
-    frequencyOfVisit.disabled = true; // Disable the "Frequency of Visit" options
-
-    document.getElementById("actualTotalPrice").style.display = "none";
-    document.getElementById("totalDiscount").style.display = "none";
-    document.getElementById("realCostPerVisit").style.display = "none";
-
-    freq = 1;
+  if (durationOfSubscription === "oneMonth") {
     duration = 1;
-    discount = 0;
-  } else {
-    // Enable the "Frequency of Visit" options
-    frequencyOfVisit.disabled = false;
-
-    document.getElementById("actualTotalPrice").style.display = "inline";
-    document.getElementById("totalDiscount").style.display = "inline";
-    document.getElementById("realCostPerVisit").style.display = "inline";
+  } else if (durationOfSubscription === "threeMonths") {
+    duration = 3;
+    discount += 5;
+  } else if (durationOfSubscription === "sixMonths") {
+    duration = 6;
+    discount += 10;
+  } else if (durationOfSubscription === "twelveMonths") {
+    duration = 12;
+    discount += 15;
   }
+
+  document.getElementById("actualTotalPrice").style.display = "inline";
+  document.getElementById("totalDiscount").style.display = "inline";
+  document.getElementById("realCostPerVisit").style.display = "inline";
 
   actualTotalPrice = actualPrice * freq * duration;
 
   var discountedPrice = actualTotalPrice - actualTotalPrice * (discount / 100);
   DISCOUNTED_PRICE = Math.round(discountedPrice);
-  var totalDiscount = actualTotalPrice - discountedPrice;
 
   var effectiveCostPerVisit = Math.round(discountedPrice / (freq * duration));
 
@@ -98,15 +116,17 @@ $(document).ready(function () {
   $("#hireGardenerBtn").click(function () {
     // Get selected values from the form
     const durationOfVisit = $("#durationOfVisit option:selected").text();
-    const durationOfContract = $("#durationOfContract option:selected").text();
+    const durationOfSubscription = $(
+      "#durationOfSubscription option:selected"
+    ).text();
     const frequencyOfVisit = $("#frequencyOfVisit option:selected").text();
 
     // Display the selected values in the popup and style them as green
     $("#selectedDurationOfVisitText").html(
       "Duration of Visit: <strong>" + durationOfVisit + "</strong>"
     );
-    $("#selectedDurationOfContractText").html(
-      "Duration of Contract: <strong>" + durationOfContract + "</strong>"
+    $("#selecteddurationOfSubscriptionText").html(
+      "Duration of Contract: <strong>" + durationOfSubscription + "</strong>"
     );
     $("#selectedFrequencyOfVisitText").html(
       "Frequency of Visit: <strong>" + frequencyOfVisit + "</strong>"
@@ -118,7 +138,7 @@ $(document).ready(function () {
     // Set hidden form values
 
     $("#selectedDurationOfVisitTextHid").val(durationOfVisit);
-    $("#selectedDurationOfContractTextHid").val(durationOfContract);
+    $("#selecteddurationOfSubscriptionTextHid").val(durationOfSubscription);
     $("#selectedFrequencyOfVisitTextHid").val(frequencyOfVisit);
     $("#discountedTotalPriceModalHid").val(DISCOUNTED_PRICE);
 
