@@ -99,8 +99,8 @@ function calculatePrice() {
     "✨ " + Math.round(discount) + "% saved";
 
   document.getElementById("effectiveCostPerVisit").textContent =
-    "₹ " + effectiveCostPerVisit;
-  document.getElementById("realCostPerVisit").textContent = "₹ " + actualPrice;
+    "₹ " + Math.round(effectiveCostPerVisit);
+  document.getElementById("realCostPerVisit").textContent = "₹ " +  Math.round(actualPrice);
 }
 
 // Automatically calculate and populate the total prices when the form is changed
