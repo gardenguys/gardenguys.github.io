@@ -14,11 +14,11 @@ function calculatePrice() {
 
   // Set actualPrice based on selected options
   if (durationOfVisit == "lessThanHalfDay") {
-    actualPrice = 464;
+    actualPrice =  597.33;
   } else if (durationOfVisit === "halfDay") {
-    actualPrice = 731;
+    actualPrice = 930.67;
   } else if (durationOfVisit === "fullDay") {
-    actualPrice = 1064;
+    actualPrice = 1197.33;
   }
 
   // Calculate the actual total price
