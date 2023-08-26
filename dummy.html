@@ -57,15 +57,18 @@
         fetch(blogURL, { mode: "no-cors" })
             .then(response => response.text())
             .then(data => {
-                console.log(data)
+                console.log("data is ", data)
                 const parser = new DOMParser();
                 const blogDoc = parser.parseFromString(data, "text/html");
                 const latestBlogs = blogDoc.querySelectorAll(".post-title");
+                console.log("latestBlogs ", latestBlogs);
                 const cardsContainer = document.createElement("div");
 
 
                 latestBlogs.forEach(blog => {
+                    console.log("blog is  ", blog);
                     const title = blog.querySelector(".post-title").textContent;
+                    console.log("title is  ", title);
                     const subtitle = blog.querySelector(".post-subtitle").textContent;
                     const postMeta = blog.nextElementSibling.textContent;
                     const href = blog.getAttribute("href");
