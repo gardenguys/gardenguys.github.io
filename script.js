@@ -14,7 +14,7 @@ function calculatePrice() {
 
   // Set actualPrice based on selected options
   if (durationOfVisit == "lessThanHalfDay") {
-    actualPrice =  597.33;
+    actualPrice = 597.33;
   } else if (durationOfVisit === "halfDay") {
     actualPrice = 930.67;
   } else if (durationOfVisit === "fullDay") {
@@ -102,7 +102,8 @@ function calculatePrice() {
 
   document.getElementById("effectiveCostPerVisit").textContent =
     "₹ " + Math.round(effectiveCostPerVisit);
-  document.getElementById("realCostPerVisit").textContent = "₹ " +  Math.round(actualPrice);
+  document.getElementById("realCostPerVisit").textContent =
+    "₹ " + Math.round(actualPrice);
 }
 
 // Automatically calculate and populate the total prices when the form is changed
@@ -148,3 +149,75 @@ $(document).ready(function () {
     $("#confirmationModal").modal("show");
   });
 });
+
+// Dynamically display blogs in the page
+// Function to create a Bootstrap 4 card
+function createCard(title, subtitle, postMeta, href) {
+  const card = document.createElement("div");
+  card.classList.add("card", "mb-3", "mx-3", "border", "shadow");
+
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+
+  const cardTitleLink = document.createElement("a"); // Title as a link
+  cardTitleLink.classList.add("card-title", "h4", "text-dark");
+  cardTitleLink.textContent = title;
+  cardTitleLink.href = href;
+
+  const cardSubtitle = document.createElement("h5");
+  cardSubtitle.classList.add("card-subtitle", "my-2", "text-muted");
+  cardSubtitle.textContent = subtitle;
+
+  cardBody.appendChild(cardTitleLink); // Move title link to card body
+  cardBody.appendChild(cardSubtitle); // Move subtitle to card body
+
+  card.appendChild(cardBody);
+
+  const cardFooter = document.createElement("div"); // Create card footer
+  cardFooter.classList.add("card-footer");
+  cardFooter.textContent = postMeta; // Set postMeta content in card footer
+  card.appendChild(cardFooter);
+
+  return card;
+}
+
+// Fetch and display latest blogs
+const blogURL = "https://gardenguys.in/blog/";
+
+const cardContainer = document.getElementById("blog-card-container");
+
+fetch(blogURL, { mode: "no-cors" })
+  .then((response) => response.text())
+  .then((data) => {
+    const parser = new DOMParser();
+    const blogDoc = parser.parseFromString(data, "text/html");
+    const latestBlogs = blogDoc.querySelectorAll(".post-preview");
+
+    let blogCount = 0;
+
+    latestBlogs.forEach((blog) => {
+      if (blogCount < 3) {
+        const title = blog.querySelector(".post-title").textContent;
+        const subtitle = blog.querySelector(".post-subtitle").textContent;
+        const postMetaElement = blog.querySelector(".post-meta"); // Select the <p> element
+        const postMetaText = postMetaElement.textContent; // Get the content from the <p> element
+        const postMetaParts = postMetaText.trim().split("\n"); // Split the content by new lines
+
+        // console.log(postMetaParts)
+
+        // Extract the relevant information
+        const postedBy = postMetaParts[2].trim();
+        const date = postMetaParts[5].trim();
+        const readTime = postMetaParts[7].trim();
+
+        const linkElement = blog.querySelector("a"); // Find the <a> element
+        const href = linkElement.getAttribute("href"); // Get the href attribute from the <a> element
+
+        const card = createCard(title, subtitle, postMetaText, href); // You can pass the full postMetaText if needed
+        card.classList.add("flex-grow-1", "mx-2", "flex-shrink-1"); // Adjust card spacing
+        cardContainer.appendChild(card);
+      }
+      blogCount++;
+    });
+  })
+  .catch((error) => console.error("Error fetching blogs:", error));

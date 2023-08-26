@@ -7,11 +7,14 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6BPN9Q43PB"></script>
 
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-KFWTQXNF');</script>
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KFWTQXNF');</script>
   <!-- End Google Tag Manager -->
 
   <script>
@@ -101,6 +104,9 @@
         </li>
         <li class="nav-item">
           <a href="#section-appointment" class="nav-link">Schedule your appointment</a>
+        </li>
+        <li class="nav-item">
+          <a href="#section-blog" class="nav-link">Gardening Tips</a>
         </li>
       </ul>
 
@@ -519,6 +525,21 @@
       </div>
     </section>
 
+    <!--Blog section -->
+    <section id="section-blog">
+      <div class="text-center">
+        <h2 class="display-4 text-center text-dark mb-5">Best Gardening Tips</h2>
+        <div class="card-group" id="blog-card-container">
+          <!-- Latest Blog Cards will be inserted here -->
+        </div>
+        <a href="https://gardenguys.in/blog/" class="btn btn-lg btn-dark mt-4 "> <!-- Add a large shadow -->
+          Get more interesting gardening tips
+          <i class="fas fa-external-link-alt ml-2"></i>
+        </a>
+      </div>
+
+    </section>
+
     <!-- Reviews -->
     <section id="section-reviews">
       <h2 class="display-4 text-center text-dark">What others say</h2>
@@ -729,11 +750,11 @@
         <div class="col-12 col-sm-6 col-lg-3">
           <h5>Quick Links</h5>
           <ul class="list-unstyled">
-            <li><a href="#section-landing" >Home</a></li>
+            <li><a href="#section-landing">Home</a></li>
             <li><a href="#" target="_blank">What's new?</a></li>
             <li><a href="mailto:info@gardenguys.in">Support</a></li>
             <li><a href="#" target="_blank">My account</a></li>
-            <li><a href="#" data-target="#cancelSubscriptionModal" data-toggle="modal" >Cancel subscription</a></li>
+            <li><a href="#" data-target="#cancelSubscriptionModal" data-toggle="modal">Cancel subscription</a></li>
           </ul>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
@@ -769,7 +790,7 @@
             Uttar Pradesh, 226010<br>
             <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
               href="tel:+917376787856">(+91) 737-678-7856</a><br>
-              <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
+            <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
               href="tel:+919219025279">(+91) 921-902-5279</a><br>
             <i class="fa fa-fw fa-inbox text-muted" aria-hidden="true"></i> <span class="sr-only">Mail:</span><a
               href="mailto:info@gardenguys.in">info@gardenguys.in</a>
@@ -794,28 +815,29 @@
     </div>
   </footer>
 
-  <div class="modal fade text-white" id="cancelSubscriptionModal" tabindex="-1" role="dialog" aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
+  <div class="modal fade text-white" id="cancelSubscriptionModal" tabindex="-1" role="dialog"
+    aria-labelledby="cancelSubscriptionModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                To cancel your existing subscription, please contact us using the following details:
-                <br><br>
-                Email: <a href="mailto:support@gardenguys.in">support@gardenguys.in</a>
-                <br>
-                Phone: <a href="tel:+917376787856">+91-7376-7878-56</a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cancelSubscriptionModalLabel">Cancel Subscription</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          To cancel your existing subscription, please contact us using the following details:
+          <br><br>
+          Email: <a href="mailto:support@gardenguys.in">support@gardenguys.in</a>
+          <br>
+          Phone: <a href="tel:+917376787856">+91-7376-7878-56</a>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -842,8 +864,8 @@
   </script>
 
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFWTQXNF"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFWTQXNF" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
 </body>
