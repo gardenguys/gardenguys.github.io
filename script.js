@@ -150,16 +150,25 @@ $(document).ready(function () {
   });
 });
 
+
+
 // Dynamically display blogs in the page
 // Function to create a Bootstrap 4 card
-function createCard(title, subtitle, postMeta, href) {
+function createCard(title, subtitle, postMeta, href, imageUrl) {
   const card = document.createElement("div");
   card.classList.add("card", "mb-3", "mx-3", "border", "shadow");
+  imageUrl = "https://gardenguys.in/" + imageUrl;
+  const cardImage = document.createElement("img");
+  cardImage.classList.add("card-img-top");
+  cardImage.src = imageUrl;
+  cardImage.style.width = "100%"; // Set fixed width
+  cardImage.style.height = "200px"; // Set fixed height
+  card.appendChild(cardImage);
 
   const cardBody = document.createElement("div");
   cardBody.classList.add("card-body");
 
-  const cardTitleLink = document.createElement("a"); // Title as a link
+  const cardTitleLink = document.createElement("a");
   cardTitleLink.classList.add("card-title", "h4", "text-dark");
   cardTitleLink.textContent = title;
   cardTitleLink.href = href;
@@ -168,23 +177,33 @@ function createCard(title, subtitle, postMeta, href) {
   cardSubtitle.classList.add("card-subtitle", "my-2", "text-muted");
   cardSubtitle.textContent = subtitle;
 
-  cardBody.appendChild(cardTitleLink); // Move title link to card body
-  cardBody.appendChild(cardSubtitle); // Move subtitle to card body
+  cardBody.appendChild(cardTitleLink);
+  cardBody.appendChild(cardSubtitle);
 
   card.appendChild(cardBody);
 
-  const cardFooter = document.createElement("div"); // Create card footer
+  const cardFooter = document.createElement("div");
   cardFooter.classList.add("card-footer");
-  cardFooter.textContent = postMeta; // Set postMeta content in card footer
+  cardFooter.textContent = postMeta;
   card.appendChild(cardFooter);
 
   return card;
 }
 
+
 // Fetch and display latest blogs
 const blogURL = "https://gardenguys.in/blog/";
 
 const cardContainer = document.getElementById("blog-card-container");
+
+function extractImageUrlFromHeaderStyle(style) {
+  const urlRegex = /url\(['"]?(.*?)['"]?\)/;
+  const matches = style.match(urlRegex);
+  if (matches && matches.length > 1) {
+    return matches[1];
+  }
+  return null;
+}
 
 fetch(blogURL, { mode: "no-cors" })
   .then((response) => response.text())
@@ -203,8 +222,6 @@ fetch(blogURL, { mode: "no-cors" })
         const postMetaText = postMetaElement.textContent; // Get the content from the <p> element
         const postMetaParts = postMetaText.trim().split("\n"); // Split the content by new lines
 
-        // console.log(postMetaParts)
-
         // Extract the relevant information
         const postedBy = postMetaParts[2].trim();
         const date = postMetaParts[5].trim();
@@ -213,9 +230,20 @@ fetch(blogURL, { mode: "no-cors" })
         const linkElement = blog.querySelector("a"); // Find the <a> element
         const href = linkElement.getAttribute("href"); // Get the href attribute from the <a> element
 
-        const card = createCard(title, subtitle, postMetaText, href); // You can pass the full postMetaText if needed
-        card.classList.add("flex-grow-1", "mx-2", "flex-shrink-1"); // Adjust card spacing
-        cardContainer.appendChild(card);
+        // Fetch the linked blog post to get the image URL
+        fetch(`https://gardenguys.in${href}`)
+          .then((response) => response.text())
+          .then((blogData) => {
+            const blogParser = new DOMParser();
+            const linkedBlogDoc = blogParser.parseFromString(blogData, "text/html");
+            const headerStyle = linkedBlogDoc.querySelector(".masthead").getAttribute("style"); // Get the style attribute of the header
+            const imageUrl = extractImageUrlFromHeaderStyle(headerStyle); // Extract the image URL
+            
+            const card = createCard(title, subtitle, postMetaText, href, imageUrl); // Pass the image URL to the createCard function
+            card.classList.add("flex-grow-1", "mx-2", "flex-shrink-1"); // Adjust card spacing
+            cardContainer.appendChild(card);
+          })
+          .catch((error) => console.error("Error fetching linked blog post:", error));
       }
       blogCount++;
     });
