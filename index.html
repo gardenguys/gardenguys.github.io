@@ -86,9 +86,6 @@
           <a href="#section-landing" class="nav-link">Home</a>
         </li>
         <li class="nav-item">
-          <a href="#section-hire-gardener" class="nav-link">Hire a Gardener</a>
-        </li>
-        <li class="nav-item">
           <a href="#section-why-hire-us" class="nav-link">Why Hire Us</a>
         </li>
         <li class="nav-item">
@@ -98,21 +95,27 @@
         <li class="nav-item">
           <a href="#section-services" class="nav-link">Services</a>
         </li>
-
+        <li class="nav-item">
+          <a href="#section-blog" class="nav-link">Gardening Tips</a>
+        </li>
         <li class="nav-item">
           <a href="#section-reviews" class="nav-link">What others say</a>
         </li>
         <li class="nav-item">
-          <a href="#section-appointment" class="nav-link">Schedule your appointment</a>
-        </li>
-        <li class="nav-item">
-          <a href="#section-blog" class="nav-link">Gardening Tips</a>
+          <a href="#section-appointment" class="nav-link">Book Your Free Appointment</a>
         </li>
       </ul>
 
+      <!-- Move "Hire a Gardener" to the right as a highlighted button -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="#section-hire-gardener" class="nav-link">
+            <button class="btn btn-warning">Hire a Gardener</button>
+          </a>
+        </li>
+      </ul>
     </div>
-
-  </nav>
+</nav>
 
   <!-- Main jumbotron -->
   <section id="section-landing"
@@ -121,17 +124,17 @@
       <h1 class="display-1 text-white" style="text-shadow: 1px 1px 2px white;">Garden Guys</h1>
       <p class="display-4 d-none d-sm-block">Let your house bloom</p>
 
-      <p class="lead">Your Garden, Our Commitment – Unmatched Reliability and Excellence!</p>
-      <!-- <p><strong>Schedule your appointment:</strong></p> -->
-      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Schedule
-        your appointment</a>
+      <p class="lead">Your Garden, Our Commitment - Unmatched Reliability and Excellence!</p>
+      <!-- <p><strong>Book Your Free Appointment:</strong></p> -->
+      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book Your Free Appointment</a>
     </div>
   </section>
 
   <section id="section-hire-gardener">
     <div class="container ">
       <h2 class="display-4 text-center text-dark">Hire a Gardener</h2>
-      <form id="packageCalculatorForm" class="mt-5">
+      <h3 class="m-3">Select the options that best suit your requirements</h3>
+      <form id="packageCalculatorForm" >
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="durationOfVisit"><b>Duration:</b></label>
@@ -407,7 +410,7 @@
               <div class="card-body text-center">
                 <i class="far fa-calendar-alt fa-4x mb-4"></i>
                 <h3 class="card-title mb-4"> <span class="badge badge-dark">Step 1</span> </h3>
-                <h4 class="card-title">Schedule Your Appointment</h4>
+                <h4 class="card-title">Book Your Free Appointment</h4>
                 <p class="card-text">Book an appointment with our experts to inspect your garden or balcony area and get
                   a personalized plan for your perfect garden.</p>
               </div>
@@ -469,7 +472,7 @@
               We'll work with you to choose the perfect plants, features and materials to create a stunning outdoor
               space that you'll love.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Schedule your appointment</a>
+              Book Your Free Appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -486,7 +489,7 @@
               walkways, patios, retaining walls, water features and lighting to enhance your garden's beauty and
               functionality.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Schedule your appointment</a>
+              Book Your Free Appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -503,7 +506,7 @@
               provide regular pruning, watering, fertilizing, pest control and other services to ensure your garden
               stays healthy and beautiful all year round.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Schedule your appointment</a>
+              Book Your Free Appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -519,7 +522,7 @@
               Our skilled technicians will select the perfect plants for your space and provide regular maintenance
               to ensure they thrive.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Schedule your appointment</a>
+              Book Your Free Appointment</a>
           </div>
         </div>
       </div>
@@ -532,8 +535,8 @@
         <div class="card-group" id="blog-card-container">
           <!-- Latest Blog Cards will be inserted here -->
         </div>
-        <a href="https://gardenguys.in/blog/" class="btn btn-lg btn-dark mt-4 "> <!-- Add a large shadow -->
-          Get more interesting gardening tips
+        <a href="https://gardenguys.in/blog/" class="btn btn-lg btn-dark mt-4 "> 
+           Discover More Helpful Garden Tips
           <i class="fas fa-external-link-alt ml-2"></i>
         </a>
       </div>
@@ -635,7 +638,7 @@
   <section id="section-appointment" class="bg-dark">
     <div class="container">
       <form class="py-5 text-white" action="https://formspree.io/f/mqkoonje" method="POST">
-        <h2 class="text-center mb-5">Schedule your appointment
+        <h2 class="text-center mb-5">Book Your Free Appointment
         </h2>
         <div class="row">
           <div class="col-12 col-sm-6">
