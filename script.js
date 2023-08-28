@@ -196,21 +196,12 @@ const blogURL = "https://gardenguys.in/blog/";
 
 const cardContainer = document.getElementById("blog-card-container");
 
-function extractImageUrlFromHeaderStyle(style) {
-  const urlRegex = /url\(['"]?(.*?)['"]?\)/;
-  const matches = style.match(urlRegex);
-  if (matches && matches.length > 1) {
-    return matches[1];
-  }
-  return null;
-}
-
-fetch(blogURL, { mode: "no-cors" })
+fetch(blogURL,)
   .then((response) => response.text())
   .then((data) => {
     const parser = new DOMParser();
     const blogDoc = parser.parseFromString(data, "text/html");
-    const latestBlogs = blogDoc.querySelectorAll(".post-preview");
+    const latestBlogs = blogDoc.querySelectorAll(".post-preview-link");
 
     let blogCount = 0;
 
@@ -223,12 +214,11 @@ fetch(blogURL, { mode: "no-cors" })
         const postMetaParts = postMetaText.trim().split("\n"); // Split the content by new lines
 
         // Extract the relevant information
-        const postedBy = postMetaParts[2].trim();
-        const date = postMetaParts[5].trim();
-        const readTime = postMetaParts[7].trim();
+        // const postedBy = postMetaParts[2].trim();
+        // const date = postMetaParts[5].trim();
+        // const readTime = postMetaParts[7].trim();
 
-        const linkElement = blog.querySelector("a"); // Find the <a> element
-        const href = linkElement.getAttribute("href"); // Get the href attribute from the <a> element
+        const href = blog.getAttribute("href"); // Get the href attribute from the <a> element
 
         // Fetch the linked blog post to get the image URL
         fetch(`https://gardenguys.in${href}`)
@@ -249,3 +239,14 @@ fetch(blogURL, { mode: "no-cors" })
     });
   })
   .catch((error) => console.error("Error fetching blogs:", error));
+
+
+  function extractImageUrlFromHeaderStyle(style) {
+    const urlRegex = /url\(['"]?(.*?)['"]?\)/;
+    const matches = style.match(urlRegex);
+    if (matches && matches.length > 1) {
+      return matches[1];
+    }
+    return null;
+  }
+  
