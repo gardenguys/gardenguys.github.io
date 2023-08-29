@@ -73,13 +73,13 @@ function calculatePrice() {
     duration = 1;
   } else if (durationOfSubscription === "threeMonths") {
     duration = 3;
-    discount += 5;
+    discount += 2;
   } else if (durationOfSubscription === "sixMonths") {
     duration = 6;
-    discount += 10;
+    discount += 5;
   } else if (durationOfSubscription === "twelveMonths") {
     duration = 12;
-    discount += 15;
+    discount += 8;
   }
 
   document.getElementById("actualTotalPrice").style.display = "inline";
