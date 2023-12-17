@@ -101,7 +101,7 @@
           <a href="#section-reviews" class="nav-link">What others say</a>
         </li>
         <li class="nav-item">
-          <a href="#section-appointment" class="nav-link">Book free appointment</a>
+          <a href="#section-appointment" class="nav-link">Book your appointment</a>
         </li>
       </ul>
 
@@ -123,77 +123,87 @@
       <h1 class="display-1 text-white" style="text-shadow: 1px 1px 2px white;">Garden Guys</h1>
       <p class="display-4 d-none d-sm-block">Let your house bloom</p>
 
-      <p class="lead">Your Garden, Our Commitment - Unmatched Reliability and Excellence!</p>
-      <!-- <p><strong>Book free appointment:</strong></p> -->
-      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book free appointment</a>
+      <p class="lead">Your Trusted Partners for Top-notch Gardeners and Premier Gardening Services!</p>
+      <!-- <p><strong>Book your appointment:</strong></p> -->
+      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book your appointment</a>
     </div>
   </section>
 
   <section id="section-hire-gardener">
     <div class="container ">
-      <h2 class="display-4 text-center text-dark">Hire a Gardener</h2>
-      <h3 class="m-3">Choose preferences</h3>
-      <form id="packageCalculatorForm" >
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="durationOfVisit"><b>Duration:</b></label>
-            <select class="form-control" id="durationOfVisit" name="durationOfVisit">
-              <option value="lessThanHalfDay">Less than half day</option>
-              <option value="halfDay">Half day</option>
-              <option value="fullDay">Full day</option>
-            </select>
+     <div class="row">
+      <div class="col-md-4 order-md-1 text-center mb-1">
+        <img src="./assets/img/Gardener.png" alt="Gardener Photo" class="img-fluid">
+      </div>
+      <div class="col-md-8 order-md-2">
+        <h2 class="display-4 text-center text-dark">Hire a Gardener</h2>
+        <h3 class="m-3">Choose preferences</h3>
+        <form id="packageCalculatorForm" >
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="durationOfVisit"><b>Duration:</b></label>
+              <select class="form-control" id="durationOfVisit" name="durationOfVisit">
+                <option value="lessThanHalfDay">Less than half day</option>
+                <option value="halfDay">Half day</option>
+                <option value="fullDay">Full day</option>
+              </select>
+            </div>
+  
+            <div class="form-group col-md-4">
+              <label for="durationOfSubscription"><b>Subscription:</b></label>
+              <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
+                <option value="singleVisit">Single visit</option>
+                <option value="oneMonth">1 month</option>
+                <option value="threeMonths">3 months</option>
+                <option value="sixMonths">6 months</option>
+                <option value="twelveMonths">12 months (Most popular) </option>
+              </select>
+            </div>
+  
+            <div class="form-group col-md-4">
+              <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
+              <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
+                <option value="onceAMonth">Once a month</option>
+                <option value="twiceAMonth">Twice a month</option>
+                <option value="fourTimesAMonth">Four times a month (Most Popular)</option>
+                <option value="eightTimesAMonth">Eight times a month</option>
+              </select>
+            </div>
           </div>
-
-          <div class="form-group col-md-4">
-            <label for="durationOfSubscription"><b>Subscription:</b></label>
-            <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
-              <option value="singleVisit">Single visit</option>
-              <option value="oneMonth">1 month</option>
-              <option value="threeMonths">3 months</option>
-              <option value="sixMonths">6 months</option>
-              <option value="twelveMonths">12 months (Most popular) </option>
-            </select>
+  
+          <!-- Use Bootstrap List Group -->
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Total:
+              <span>
+                <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
+                <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
+                <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cost per visit:
+              <span>
+                <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
+                <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
+              </span>
+            </li>
+          </ul>
+  
+          <div class="text-center">
+            <!-- Wrap the button inside a div with text-center class -->
+            <!-- "Hire Gardener" button -->
+            <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
+                aria-hidden="true"></i>
+              Hire a Gardener
+            </button>
           </div>
+        </form>
 
-          <div class="form-group col-md-4">
-            <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
-            <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-              <option value="onceAMonth">Once a month</option>
-              <option value="twiceAMonth">Twice a month</option>
-              <option value="fourTimesAMonth">Four times a month (Most Popular)</option>
-              <option value="eightTimesAMonth">Eight times a month</option>
-            </select>
-          </div>
-        </div>
 
-        <!-- Use Bootstrap List Group -->
-        <ul class="list-group list-group-flush mt-3">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Total:
-            <span>
-              <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
-              <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
-              <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
-            </span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Cost per visit:
-            <span>
-              <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
-              <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
-            </span>
-          </li>
-        </ul>
+      </div>
 
-        <div class="text-center">
-          <!-- Wrap the button inside a div with text-center class -->
-          <!-- "Hire Gardener" button -->
-          <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
-              aria-hidden="true"></i>
-            Hire a Gardener
-          </button>
-        </div>
-      </form>
+     </div>
 
 
       <table class="table table-bordered border-warning text-dark">
@@ -413,7 +423,7 @@
               <div class="card-body text-center">
                 <i class="far fa-calendar-alt fa-4x mb-4"></i>
                 <h3 class="card-title mb-4"> <span class="badge badge-dark">Step 1</span> </h3>
-                <h4 class="card-title">Book free appointment</h4>
+                <h4 class="card-title">Book your appointment</h4>
                 <p class="card-text">Book an appointment with our experts to inspect your garden or balcony area and get
                   a personalized plan for your perfect garden.</p>
               </div>
@@ -475,7 +485,7 @@
               We'll work with you to choose the perfect plants, features and materials to create a stunning outdoor
               space that you'll love.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Book free appointment</a>
+              Book your appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -492,7 +502,7 @@
               walkways, patios, retaining walls, water features and lighting to enhance your garden's beauty and
               functionality.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Book free appointment</a>
+              Book your appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -509,7 +519,7 @@
               provide regular pruning, watering, fertilizing, pest control and other services to ensure your garden
               stays healthy and beautiful all year round.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Book free appointment</a>
+              Book your appointment</a>
           </div>
         </div>
         <hr class="mb-4">
@@ -525,7 +535,7 @@
               Our skilled technicians will select the perfect plants for your space and provide regular maintenance
               to ensure they thrive.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
-              Book free appointment</a>
+              Book your appointment</a>
           </div>
         </div>
       </div>
@@ -637,7 +647,7 @@
   <section id="section-appointment" class="bg-dark">
     <div class="container">
       <form class="py-5 text-white" action="https://formspree.io/f/mqkoonje" method="POST">
-        <h2 class="text-center mb-5">Book free appointment
+        <h2 class="text-center mb-5">Book your appointment
         </h2>
         <div class="row">
           <div class="col-12 col-sm-6">
@@ -788,7 +798,7 @@
           <h5>Our location:</h5>
           <address>
             <strong>Garden Guys</strong><br>
-            Gomti Nagar, Lucknow<br>
+            Aliganj, Lucknow<br>
             Uttar Pradesh, 226010<br>
             <i class="fa fa-fw fa-phone text-muted" aria-hidden="true"></i> <span class="sr-only">Telephone:</span><a
               href="tel:+917376787856">(+91) 737-678-7856</a><br>
