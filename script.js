@@ -12,13 +12,21 @@ function calculatePrice() {
   var freq = 1;
   var duration = 1;
 
+  var miniVisit =  (350 / (1 - (discount / 100))).toFixed(2);
+  var lessThanHalfDayPrice = (450 / (1 - (discount / 100))).toFixed(2);
+  var halfDayPrice = (700 / (1 - (discount / 100))).toFixed(2);
+  var fullDayPrice = (900 / (1 - (discount / 100))).toFixed(2);
+
   // Set actualPrice based on selected options
-  if (durationOfVisit == "lessThanHalfDay") {
-    actualPrice = 597.33;
+  if (durationOfVisit == "miniVisit") {
+    actualPrice = parseFloat(miniVisit);
+  }
+  else if  (durationOfVisit == "lessThanHalfDay") {
+    actualPrice = parseFloat(lessThanHalfDayPrice);
   } else if (durationOfVisit === "halfDay") {
-    actualPrice = 930.67;
+    actualPrice = parseFloat(halfDayPrice);
   } else if (durationOfVisit === "fullDay") {
-    actualPrice = 1197.33;
+    actualPrice = parseFloat(fullDayPrice);
   }
 
   // Calculate the actual total price
