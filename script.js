@@ -15,7 +15,7 @@ function calculatePrice() {
   var miniVisit =  (350 / (1 - (discount / 100))).toFixed(2);
   var lessThanHalfDayPrice = (450 / (1 - (discount / 100))).toFixed(2);
   var halfDayPrice = (700 / (1 - (discount / 100))).toFixed(2);
-  var fullDayPrice = (900 / (1 - (discount / 100))).toFixed(2);
+  var fullDayPrice = (1200 / (1 - (discount / 100))).toFixed(2);
 
   // Set actualPrice based on selected options
   if (durationOfVisit == "miniVisit") {
