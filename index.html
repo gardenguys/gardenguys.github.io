@@ -114,7 +114,7 @@
         </li>
       </ul>
     </div>
-</nav>
+  </nav>
 
   <!-- Main jumbotron -->
   <section id="section-landing"
@@ -125,86 +125,87 @@
 
       <p class="lead">Your Trusted Partners for Top-notch Gardeners and Premier Gardening Services!</p>
       <!-- <p><strong>Book your appointment:</strong></p> -->
-      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book your appointment</a>
+      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book
+        your appointment</a>
     </div>
   </section>
 
   <section id="section-hire-gardener">
     <div class="container">
-     <div class="row">
-      <div class="col-md-4 order-md-1 text-center">
-        <img src="./assets/img/Gardener1.png" alt="Gardener Photo" class="img-fluid mt-0 mt-sm-5">
+      <div class="row">
+        <div class="col-md-4 order-md-1 text-center">
+          <img src="./assets/img/Gardener1.png" alt="Gardener Photo" class="img-fluid mt-0 mt-sm-5">
+        </div>
+        <div class="col-md-8 order-md-2">
+          <h2 class="display-4 text-center text-sm-left text-dark">Hire a Gardener</h2>
+          <h3 class="m-3">Choose preferences</h3>
+          <form id="packageCalculatorForm">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="durationOfVisit"><b>Time Duration:</b></label>
+                <select class="form-control" id="durationOfVisit" name="durationOfVisit">
+                  <option value="miniVisit">1.5 Hours</option>
+                  <option value="lessThanHalfDay">2.5 Hours</option>
+                  <option value="halfDay">Half day</option>
+                  <option value="fullDay">Full day</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="durationOfSubscription"><b>Subscription Period:</b></label>
+                <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
+                  <option value="singleVisit">Single visit</option>
+                  <option value="oneMonth">1 month</option>
+                  <option value="threeMonths">3 months</option>
+                  <option value="sixMonths">6 months</option>
+                  <option value="twelveMonths">12 months (Most popular) </option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
+                <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
+                  <option value="onceAMonth">Once a month</option>
+                  <option value="twiceAMonth">Twice a month</option>
+                  <option value="fourTimesAMonth">Four times a month (Most Popular)</option>
+                  <option value="eightTimesAMonth">Eight times a month</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Use Bootstrap List Group -->
+            <ul class="list-group list-group-flush mt-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Total:
+                <span>
+                  <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
+                  <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
+                  <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
+                </span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Cost per visit:
+                <span>
+                  <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
+                  <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
+                </span>
+              </li>
+            </ul>
+
+            <div class="text-center">
+              <!-- Wrap the button inside a div with text-center class -->
+              <!-- "Hire Gardener" button -->
+              <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
+                  aria-hidden="true"></i>
+                Hire a Gardener
+              </button>
+            </div>
+          </form>
+
+
+        </div>
+
       </div>
-      <div class="col-md-8 order-md-2">
-        <h2 class="display-4 text-center text-sm-left text-dark">Hire a Gardener</h2>
-        <h3 class="m-3">Choose preferences</h3>
-        <form id="packageCalculatorForm" >
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="durationOfVisit"><b>Time Duration:</b></label>
-              <select class="form-control" id="durationOfVisit" name="durationOfVisit">
-                <option value="miniVisit">1.5 Hours</option>
-                <option value="lessThanHalfDay">2.5 Hours</option>
-                <option value="halfDay">Half day</option>
-                <option value="fullDay">Full day</option>
-              </select>
-            </div>
-  
-            <div class="form-group col-md-4">
-              <label for="durationOfSubscription"><b>Subscription Period:</b></label>
-              <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
-                <option value="singleVisit">Single visit</option>
-                <option value="oneMonth">1 month</option>
-                <option value="threeMonths">3 months</option>
-                <option value="sixMonths">6 months</option>
-                <option value="twelveMonths">12 months (Most popular) </option>
-              </select>
-            </div>
-  
-            <div class="form-group col-md-4">
-              <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
-              <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-                <option value="onceAMonth">Once a month</option>
-                <option value="twiceAMonth">Twice a month</option>
-                <option value="fourTimesAMonth">Four times a month (Most Popular)</option>
-                <option value="eightTimesAMonth">Eight times a month</option>
-              </select>
-            </div>
-          </div>
-  
-          <!-- Use Bootstrap List Group -->
-          <ul class="list-group list-group-flush mt-3">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Total:
-              <span>
-                <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
-                <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
-                <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
-              </span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Cost per visit:
-              <span>
-                <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
-                <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
-              </span>
-            </li>
-          </ul>
-  
-          <div class="text-center">
-            <!-- Wrap the button inside a div with text-center class -->
-            <!-- "Hire Gardener" button -->
-            <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
-                aria-hidden="true"></i>
-              Hire a Gardener
-            </button>
-          </div>
-        </form>
-
-
-      </div>
-
-     </div>
 
 
       <table class="table table-bordered border-warning text-dark">
@@ -221,14 +222,16 @@
               <i class="fas fa-user-check"></i>
               <strong>Garden Expert Consultation</strong>
             </td>
-            <td> As part of our package, you'll enjoy regular consultation from our garden expert to provide valuable advice on enhancing the beauty of your garden.</td>
+            <td> As part of our package, you'll enjoy regular consultation from our garden expert to provide valuable
+              advice on enhancing the beauty of your garden.</td>
           </tr>
           <tr>
             <td>
               <i class="fas fa-leaf"></i>
               <strong>Fertilization</strong>
             </td>
-            <td> Premium quality fertilization with Garden Guys vermicompost, available at wholesale rates for thriving, healthy plants! </td>
+            <td> Premium quality fertilization with Garden Guys vermicompost, available at wholesale rates for thriving,
+              healthy plants! </td>
           </tr>
           <tr>
             <td>
@@ -244,7 +247,7 @@
             </td>
             <td>Expert pest control to protect your garden.</td>
           </tr>
-<!--           <tr>
+          <!--           <tr>
             <td>
               <i class="fas fa-leaf"></i>
               <strong>Neem Oil Treatment</strong>
@@ -290,7 +293,9 @@
         <tfoot>
           <tr>
             <td colspan="2">
-              <b>🎁 Special bonus:</b> Avail up to 5 kg of our signature product, Garden Guys vermicompost, at a special wholesale rate! This essential nutrient-rich blend supports your plants with vital nutrients and beneficial microorganisms.
+              <b>🎁 Special bonus:</b> Avail up to 5 kg of our signature product, Garden Guys vermicompost, at a special
+              wholesale rate! This essential nutrient-rich blend supports your plants with vital nutrients and
+              beneficial microorganisms.
             </td>
           </tr>
         </tfoot>
@@ -549,8 +554,8 @@
         <div class="card-group" id="blog-card-container">
           <!-- Latest Blog Cards will be inserted here -->
         </div>
-        <a href="https://gardenguys.in/blog/" class="btn btn-lg btn-dark mt-4 "> 
-           Discover More Helpful Garden Tips
+        <a href="https://gardenguys.in/blog/" class="btn btn-lg btn-dark mt-4 ">
+          Discover More Helpful Garden Tips
           <i class="fas fa-external-link-alt ml-2"></i>
         </a>
       </div>
@@ -563,21 +568,24 @@
       <div class="row">
         <div class="col-12 col-md-6 col-xl-3">
           <blockquote class="blockquote p-3">
-            <p><i class="fa fa-fw fa-quote-left text-dark" aria-hidden="true"></i>Extremely well 
-              done. My garden is looking much more organised 
-              and beautiful. <br>  
-              The boy was very hardworking and dedicated. Pls continue with the good work 👏 and 
+            <p><i class="fa fa-fw fa-quote-left text-dark" aria-hidden="true"></i>Extremely well
+              done. My garden is looking much more organised
+              and beautiful. <br>
+              The boy was very hardworking and dedicated. Pls continue with the good work 👏 and
               pay my gratitude to the boy who worked so well.. and gratitude to your team also for
-               all the efforts put in growing and bringing my pots as requested. Stay committed! 
-               Regards and thanks.<i
-                class="fa fa-fw fa-quote-right text-dark" aria-hidden="true"></i></p>
+              all the efforts put in growing and bringing my pots as requested. Stay committed!
+              Regards and thanks.<i class="fa fa-fw fa-quote-right text-dark" aria-hidden="true"></i></p>
             <footer class="blockquote-footer">Himani Saxena <time datetime="2023-10-12T08:20">(October 12 2023
                 8:20)</time></footer>
           </blockquote>
         </div>
         <div class="col-12 col-md-6 col-xl-3">
           <blockquote class="blockquote p-3">
-            <p><i class="fa fa-fw fa-quote-left text-dark" aria-hidden="true"></i>I got tired of hiring local gardeners who would just disappear and not give their all for the job, so the Lucknow-based Garden Guys company decided to step in and take over. It is reasonable to state that after using the service for a month, the quality and timeliness of the service have been excellent. <i class="fa fa-fw fa-quote-right text-dark" aria-hidden="true"></i></p>
+            <p><i class="fa fa-fw fa-quote-left text-dark" aria-hidden="true"></i>I got tired of hiring local gardeners
+              who would just disappear and not give their all for the job, so the Lucknow-based Garden Guys company
+              decided to step in and take over. It is reasonable to state that after using the service for a month, the
+              quality and timeliness of the service have been excellent. <i class="fa fa-fw fa-quote-right text-dark"
+                aria-hidden="true"></i></p>
             <footer class="blockquote-footer">Ishan Gulati <time datetime="2023-11-7T14:35">(November 07 2023
                 9:00)</time></footer>
           </blockquote>
@@ -819,7 +827,7 @@
               </script> Garden Guys, Inc.
             </li>
             <li class="list-inline-item">All rights reserved.</li>
-            <li class="list-inline-item"><a href="terms-and-conditions.html" >Terms of use and privacy
+            <li class="list-inline-item"><a href="terms-and-conditions.html">Terms of use and privacy
                 policy.</a></li>
           </ul>
         </div>
