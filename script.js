@@ -7,111 +7,61 @@ function calculatePrice() {
     "durationOfSubscription"
   ).value;
 
-  var actualPrice = 0;
-  var discount = 25;
+  var actualTotalPrice = 0;
   var freq = 1;
   var duration = 1;
 
-  var miniVisit =  (350 / (1 - (discount / 100))).toFixed(2);
-  var lessThanHalfDayPrice = (500 / (1 - (discount / 100))).toFixed(2);
-  var halfDayPrice = (800 / (1 - (discount / 100))).toFixed(2);
-  var fullDayPrice = (1500 / (1 - (discount / 100))).toFixed(2);
+  var miniVisit = 350;
+  var lessThanHalfDayPrice = 500;
+  var halfDayPrice = 800;
+  var fullDayPrice = 1500;
 
-  // Set actualPrice based on selected options
+  // Set actualTotalPrice based on selected options
   if (durationOfVisit == "miniVisit") {
-    actualPrice = parseFloat(miniVisit);
-  }
-  else if  (durationOfVisit == "lessThanHalfDay") {
-    actualPrice = parseFloat(lessThanHalfDayPrice);
+    actualTotalPrice = miniVisit;
+  } else if (durationOfVisit == "lessThanHalfDay") {
+    actualTotalPrice = lessThanHalfDayPrice;
   } else if (durationOfVisit === "halfDay") {
-    actualPrice = parseFloat(halfDayPrice);
+    actualTotalPrice = halfDayPrice;
   } else if (durationOfVisit === "fullDay") {
-    actualPrice = parseFloat(fullDayPrice);
+    actualTotalPrice = fullDayPrice;
   }
 
-  // Calculate the actual total price
-  var actualTotalPrice = actualPrice;
-
-  // Reset the "Frequency of Visit" options if "Single visit" is selected as the duration of contract
-  if (durationOfSubscription === "singleVisit") {
-    frequencyOfVisit.disabled = true;
-
-    if (frequencyOfVisit.options[0].value !== "onceAMonth") {
-      var onceAMonthOption = new Option("Once a month", "onceAMonth");
-      onceAMonthOption.id = "onceAMonth"; // Set the id attribute
-      frequencyOfVisit.options.add(onceAMonthOption, 0); // Add at the beginning
-    }
-    // Disable the "Frequency of Visit" options
-    frequencyOfVisit.selectedIndex = 0;
-    freq = 1;
-    duration = 1;
-  } else {
-    // Enable the "Frequency of Visit" options
-    frequencyOfVisit.disabled = false;
-  }
-
-  // Dynamically add or remove "Once a month" option based on subscription duration
-  if (durationOfSubscription === "oneMonth") {
-    if (frequencyOfVisit.options[0].value === "onceAMonth") {
-      frequencyOfVisit.options[0].remove(); // Remove "Once a month" option
-    }
+  // Calculate the total price
+ if (frequencyOfVisit.value === "twiceAMonth") {
     freq = 2;
-  } else {
-    // Add "Once a month" option if it doesn't exist
-    if (frequencyOfVisit.options[0].value !== "onceAMonth") {
-      var onceAMonthOption = new Option("Once a month", "onceAMonth");
-      onceAMonthOption.id = "onceAMonth"; // Set the id attribute
-      frequencyOfVisit.options.add(onceAMonthOption, 0); // Add at the beginning
-    }
-  }
-
-  // Calculate the discounted total price
-  if (frequencyOfVisit.value === "onceAMonth") {
-    freq = 1;
-  } else if (frequencyOfVisit.value === "twiceAMonth") {
-    freq = 2;
+    actualTotalPrice += 100;
   } else if (frequencyOfVisit.value === "fourTimesAMonth") {
     freq = 4;
   } else if (frequencyOfVisit.value === "eightTimesAMonth") {
     freq = 8;
   }
 
-  // Adjust discounted total price based on contract duration
+  // Adjust total price based on contract duration
   if (durationOfSubscription === "oneMonth") {
     duration = 1;
   } else if (durationOfSubscription === "threeMonths") {
     duration = 3;
-    // discount += 2;
   } else if (durationOfSubscription === "sixMonths") {
     duration = 6;
-    // discount += 5;
   } else if (durationOfSubscription === "twelveMonths") {
     duration = 12;
-    // discount += 8;
   }
 
   document.getElementById("actualTotalPrice").style.display = "inline";
-  document.getElementById("totalDiscount").style.display = "inline";
-  document.getElementById("realCostPerVisit").style.display = "inline";
+  // document.getElementById("realCostPerVisit").style.display = "inline";
 
-  actualTotalPrice = actualPrice * freq * duration;
+  actualTotalPrice = actualTotalPrice * freq * duration;
 
-  var discountedPrice = actualTotalPrice - actualTotalPrice * (discount / 100);
-  DISCOUNTED_PRICE = Math.round(discountedPrice);
+  var effectiveCostPerVisit = Math.round(actualTotalPrice / (freq * duration));
 
-  var effectiveCostPerVisit = Math.round(discountedPrice / (freq * duration));
+  DISCOUNTED_PRICE = Math.round(actualTotalPrice);
 
-  document.getElementById("discountedTotalPrice").textContent =
-    "₹ " + Math.round(discountedPrice);
   document.getElementById("actualTotalPrice").textContent =
     "₹ " + Math.round(actualTotalPrice);
-  document.getElementById("totalDiscount").textContent =
-    "✨ " + Math.round(discount) + "% saved";
 
   document.getElementById("effectiveCostPerVisit").textContent =
     "₹ " + Math.round(effectiveCostPerVisit);
-  document.getElementById("realCostPerVisit").textContent =
-    "₹ " + Math.round(actualPrice);
 }
 
 // Automatically calculate and populate the total prices when the form is changed
@@ -143,7 +93,7 @@ $(document).ready(function () {
       "Frequency of Visit: <strong>" + frequencyOfVisit + "</strong>"
     );
     $("#discountedTotalPriceModal").html(
-      "Total: <strong>" + DISCOUNTED_PRICE + "</strong>"
+      "Total: <strong>₹ " + DISCOUNTED_PRICE + "</strong>"
     );
 
     // Set hidden form values
@@ -157,7 +107,6 @@ $(document).ready(function () {
     $("#confirmationModal").modal("show");
   });
 });
-
 
 
 // Dynamically display blogs in the page

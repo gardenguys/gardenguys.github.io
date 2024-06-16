@@ -154,18 +154,18 @@
               <div class="form-group col-md-4">
                 <label for="durationOfSubscription"><b>Subscription Period:</b></label>
                 <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
-                  <option value="singleVisit">Single visit</option>
+                  <!-- <option value="singleVisit">Single visit</option> -->
                   <option value="oneMonth">1 month</option>
                   <option value="threeMonths">3 months</option>
                   <option value="sixMonths">6 months</option>
-                  <option value="twelveMonths">12 months (Most popular) </option>
+                  <option value="twelveMonths">12 months (Most popular)</option>
                 </select>
               </div>
 
               <div class="form-group col-md-4">
                 <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
                 <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-                  <option value="onceAMonth">Once a month</option>
+                  <!-- <option value="onceAMonth">Once a month</option> -->
                   <option value="twiceAMonth">Twice a month</option>
                   <option value="fourTimesAMonth">Four times a month (Most Popular)</option>
                   <option value="eightTimesAMonth">Eight times a month</option>
@@ -176,18 +176,16 @@
             <!-- Use Bootstrap List Group -->
             <ul class="list-group list-group-flush mt-3">
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                Total:
+                Total Amount:
                 <span>
-                  <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
-                  <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
-                  <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
+                  <span id="actualTotalPrice" style="font-weight: bold; color: green; font-size: 1.5em;">₹ 0</span>
                 </span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 Cost per visit:
                 <span>
-                  <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
-                  <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
+                  <span id="effectiveCostPerVisit" style="font-weight: bold; color: grey"></span>
+
                 </span>
               </li>
             </ul>
