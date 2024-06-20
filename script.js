@@ -35,6 +35,8 @@ function calculatePrice() {
     freq = 4;
   } else if (frequencyOfVisit.value === "eightTimesAMonth") {
     freq = 8;
+  } else if (frequencyOfVisit.value === "twelveTimesAMonth") {
+    freq = 12;
   }
 
   // Adjust total price based on contract duration
