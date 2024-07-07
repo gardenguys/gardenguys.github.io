@@ -1,6 +1,7 @@
 var DISCOUNTED_PRICE = 0;
 
 function calculatePrice() {
+  var subscriptionPlan = document.getElementById("subscriptionPlan").value;
   var durationOfVisit = document.getElementById("durationOfVisit").value;
   var frequencyOfVisit = document.getElementById("frequencyOfVisit");
   var durationOfSubscription = document.getElementById(
@@ -16,6 +17,8 @@ function calculatePrice() {
   var halfDayPrice = 800;
   var fullDayPrice = 1500;
 
+  var expertCharge = 1000;
+
   // Set actualTotalPrice based on selected options
   if (durationOfVisit == "miniVisit") {
     actualTotalPrice = miniVisit;
@@ -28,7 +31,7 @@ function calculatePrice() {
   }
 
   // Calculate the total price
- if (frequencyOfVisit.value === "twiceAMonth") {
+  if (frequencyOfVisit.value === "twiceAMonth") {
     freq = 2;
     actualTotalPrice += 100;
   } else if (frequencyOfVisit.value === "fourTimesAMonth") {
@@ -52,12 +55,23 @@ function calculatePrice() {
     duration = 12;
   }
 
+  // Add 1000 to total if subscription plan is "ultimateCare"
+
+  if (subscriptionPlan === "ultimateCare") {
+    document.getElementById("premiumCharge").textContent = `₹ ${expertCharge}`;
+    expertCharge *= duration;
+  } else {
+    expertCharge = 0;
+    document.getElementById("premiumCharge").textContent = `₹ ${expertCharge}`;
+  }
+
   document.getElementById("actualTotalPrice").style.display = "inline";
-  // document.getElementById("realCostPerVisit").style.display = "inline";
 
-  actualTotalPrice = actualTotalPrice * freq * duration;
+  actualTotalPrice = actualTotalPrice * freq * duration + expertCharge;
 
-  var effectiveCostPerVisit = Math.round(actualTotalPrice / (freq * duration));
+  var effectiveCostPerVisit = Math.round(
+    (actualTotalPrice - expertCharge) / (freq * duration)
+  );
 
   DISCOUNTED_PRICE = Math.round(actualTotalPrice);
 
@@ -80,6 +94,7 @@ calculatePrice();
 $(document).ready(function () {
   $("#hireGardenerBtn").click(function () {
     // Get selected values from the form
+    const subscriptionPlan = $("#subscriptionPlan option:selected").text();
     const durationOfVisit = $("#durationOfVisit option:selected").text();
     const durationOfSubscription = $(
       "#durationOfSubscription option:selected"
@@ -87,6 +102,9 @@ $(document).ready(function () {
     const frequencyOfVisit = $("#frequencyOfVisit option:selected").text();
 
     // Display the selected values in the popup and style them as green
+    $("#selectedSubscriptionPlanText").html(
+      "Subscription Plan: <strong>" + subscriptionPlan + "</strong>"
+    );
     $("#selectedDurationOfVisitText").html(
       "Duration of Visit: <strong>" + durationOfVisit + "</strong>"
     );
@@ -102,6 +120,7 @@ $(document).ready(function () {
 
     // Set hidden form values
 
+    $("#selectedsubscriptionPlanTextHid").val(durationOfVisit);
     $("#selectedDurationOfVisitTextHid").val(durationOfVisit);
     $("#selecteddurationOfSubscriptionTextHid").val(durationOfSubscription);
     $("#selectedFrequencyOfVisitTextHid").val(frequencyOfVisit);
@@ -111,7 +130,6 @@ $(document).ready(function () {
     $("#confirmationModal").modal("show");
   });
 });
-
 
 // Dynamically display blogs in the page
 // Function to create a Bootstrap 4 card
@@ -151,13 +169,12 @@ function createCard(title, subtitle, postMeta, href, imageUrl) {
   return card;
 }
 
-
 // Fetch and display latest blogs
 const blogURL = "https://gardenguys.in/blog/";
 
 const cardContainer = document.getElementById("blog-card-container");
 
-fetch(blogURL,)
+fetch(blogURL)
   .then((response) => response.text())
   .then((data) => {
     const parser = new DOMParser();
@@ -186,28 +203,39 @@ fetch(blogURL,)
           .then((response) => response.text())
           .then((blogData) => {
             const blogParser = new DOMParser();
-            const linkedBlogDoc = blogParser.parseFromString(blogData, "text/html");
-            const headerStyle = linkedBlogDoc.querySelector(".masthead").getAttribute("style"); // Get the style attribute of the header
+            const linkedBlogDoc = blogParser.parseFromString(
+              blogData,
+              "text/html"
+            );
+            const headerStyle = linkedBlogDoc
+              .querySelector(".masthead")
+              .getAttribute("style"); // Get the style attribute of the header
             const imageUrl = extractImageUrlFromHeaderStyle(headerStyle); // Extract the image URL
-            
-            const card = createCard(title, subtitle, postMetaText, href, imageUrl); // Pass the image URL to the createCard function
+
+            const card = createCard(
+              title,
+              subtitle,
+              postMetaText,
+              href,
+              imageUrl
+            ); // Pass the image URL to the createCard function
             card.classList.add("flex-grow-1", "mx-2", "flex-shrink-1"); // Adjust card spacing
             cardContainer.appendChild(card);
           })
-          .catch((error) => console.error("Error fetching linked blog post:", error));
+          .catch((error) =>
+            console.error("Error fetching linked blog post:", error)
+          );
       }
       blogCount++;
     });
   })
   .catch((error) => console.error("Error fetching blogs:", error));
 
-
-  function extractImageUrlFromHeaderStyle(style) {
-    const urlRegex = /url\(['"]?(.*?)['"]?\)/;
-    const matches = style.match(urlRegex);
-    if (matches && matches.length > 1) {
-      return matches[1];
-    }
-    return null;
+function extractImageUrlFromHeaderStyle(style) {
+  const urlRegex = /url\(['"]?(.*?)['"]?\)/;
+  const matches = style.match(urlRegex);
+  if (matches && matches.length > 1) {
+    return matches[1];
   }
-  
+  return null;
+}

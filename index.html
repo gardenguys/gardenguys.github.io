@@ -142,6 +142,13 @@
           <form id="packageCalculatorForm">
             <div class="form-row">
               <div class="form-group col-md-4">
+                <label for="subscriptionPlan"><b>Subscription Plan:</b></label>
+                <select class="form-control" id="subscriptionPlan" name="subscriptionPlan">
+                  <option value="essentialCare">Essential Care (Basic)</option>
+                  <option value="ultimateCare">Ultimate Care (Premium)</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
                 <label for="durationOfVisit"><b>Time Duration:</b></label>
                 <select class="form-control" id="durationOfVisit" name="durationOfVisit">
                   <option value="miniVisit">1.5 Hours</option>
@@ -150,22 +157,18 @@
                   <option value="fullDay">Full day</option>
                 </select>
               </div>
-
               <div class="form-group col-md-4">
                 <label for="durationOfSubscription"><b>Subscription Period:</b></label>
                 <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
-                  <!-- <option value="singleVisit">Single visit</option> -->
                   <option value="oneMonth">1 Month</option>
                   <option value="threeMonths">3 Months</option>
                   <option value="sixMonths">6 Months</option>
                   <option value="twelveMonths">12 Months</option>
                 </select>
               </div>
-
               <div class="form-group col-md-4">
                 <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
                 <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-                  <!-- <option value="onceAMonth">Once a month</option> -->
                   <option value="twiceAMonth">2 Times a Month</option>
                   <option value="fourTimesAMonth">4 Times a Month (Most Popular)</option>
                   <option value="eightTimesAMonth">8 Times a Month</option>
@@ -174,7 +177,7 @@
                 </select>
               </div>
             </div>
-
+          
             <!-- Use Bootstrap List Group -->
             <ul class="list-group list-group-flush mt-3">
               <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -187,27 +190,109 @@
                 Cost per visit:
                 <span>
                   <span id="effectiveCostPerVisit" style="font-weight: bold; color: grey"></span>
-
+                </span>
+              </li>
+              <li id="premiumChargeItem" class="list-group-item d-flex justify-content-between align-items-center" >
+                Premium Charge (per month):
+                <span>
+                  <span id="premiumCharge" style="font-weight: bold; color: grey">₹ 1000 </span>
                 </span>
               </li>
               <li class="list-group-item d-flex  align-items-center">
-                * Single visit: ₹ 700 for up to 3
-                hours of work<br>
-                * Consultation visit: ₹ 200
+                * Single visit: ₹ 700 for up to 3 hours of work<br>
+                * Query visit: ₹ 200
               </li>
-
             </ul>
-
+          
             <div class="text-center">
               <!-- Wrap the button inside a div with text-center class -->
               <!-- "Hire Gardener" button -->
-              <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
-                  aria-hidden="true"></i>
+              <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf" aria-hidden="true"></i>
                 Hire a Gardener
               </button>
             </div>
           </form>
+          
+          
         </div>
+      </div>
+      <!--Subscription chart-->
+      <div class="container mb-4">
+          <h1 class="mb-4 mt-4 mb-sm-5 text-center">Subscription Plans</h1>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-4 mb-4">
+              <div class="card card-outline-success">
+                <div class="card-header bg-success text-white text-center">
+                  <h2>Essential Care</h2>
+                  <!-- <h6>Comprehensive garden maintenance for active homeowners.</h6> -->
+                </div>
+                <div class="card-body">
+                  <p class="card-text text-left">Comprehensive garden maintenance for active homeowners.</p>
+                </div>
+                <ul class="list-group small ">
+                  <li class="list-group-item">✅ Pruning, Trimming, Aeration, Weed Control</li>
+                  <li class="list-group-item">✅ Basic Pesticide Application</li>
+                  <li class="list-group-item">✅ Regular Garden Cleanup</li>
+                  <li class="list-group-item">✅ Personalized Plant Care Tips</li>
+                  <li class="list-group-item text-muted">❌ Monthly Garden Expert Visit</li>
+                  <li class="list-group-item text-muted">❌ Full Pesticide Application</li>
+                  <li class="list-group-item text-muted">❌ Unlimited On-Call Consultation</li>
+                  <li class="list-group-item text-muted">❌ Priority Plant Delivery</li>
+                </ul>
+               
+                  <div class="card-footer text-center">
+                    <a href="tel:+1234567890" class="btn btn-success btn-lg">Call Us</a>
+                  </div>
+                
+              </div>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <div class="card card-outline-warning ">
+                <div class="card-header bg-warning text-white text-center">
+                  <h2>Ultimate Care</h2>
+                  <!-- <h6>Premium garden services for busy enthusiasts.</h6> -->
+                </div>
+                <div class="card-body">
+                  <p class="card-text text-left">Premium garden services for busy enthusiasts.</p>
+                </div>
+                <ul class="list-group small">
+                  <li class="list-group-item">✅ Pruning, Trimming, Aeration, Weed Control</li>
+                  <li class="list-group-item">✅ Basic Pesticide Application</li>
+                  <li class="list-group-item">✅ Regular Garden Cleanup</li>
+                  <li class="list-group-item">✅ Personalized Plant Care Tips</li>
+                  <li class="list-group-item">✅ Monthly Garden Expert Visit</li>
+                  <li class="list-group-item">✅ Full Pesticide Application</li>
+                  <li class="list-group-item">✅ Unlimited On-Call Consultation</li>
+                  <li class="list-group-item">✅ Priority Plant Delivery</li>
+                </ul>
+                <div class="card-footer text-center">
+                  <a href="tel:+1234567890" class="btn btn-warning btn-lg">Call Us</a>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-12 col-md-4 mb-4">
+              <div class="card card-outline-danger ">
+                <div class="card-header bg-danger text-white text-center">
+                  <h2>Enterprise</h2>
+                  <h4>$199.99 / year</h4>
+                </div>
+                <div class="card-body">
+                  <p class="card-text text-left">Perfect if you're a big company with many websites.</p>
+                </div>
+                <ul class="list-group small">
+                  <li class="list-group-item">100GB Storage</li>
+                  <li class="list-group-item">100 e-mails</li>
+                  <li class="list-group-item">50 domains</li>
+                  <li class="list-group-item">25GB bandwidth</li>
+                  <li class="list-group-item">Enhanced performance</li>
+                  
+                </ul>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-danger btn-lg">Select</button>
+                </div>
+              </div>
+            </div> -->
+          </div>
       </div>
 
 
@@ -358,6 +443,7 @@
               <!-- Content inside the modal -->
               <p>You have selected the following options:</p>
               <ul>
+                <li><span id="selectedSubscriptionPlanText"></span></li>
                 <li><span id="selectedDurationOfVisitText"></span></li>
                 <li><span id="selecteddurationOfSubscriptionText"></span></li>
                 <li><span id="selectedFrequencyOfVisitText"></span></li>
@@ -380,6 +466,8 @@
                 </div>
 
                 <!-- take other input as well to send via form-->
+                <input type="hidden" class="form-control" id="selectedSubscriptionPlanTextHid"
+                name="Subscription Plan" />
 
                 <input type="hidden" class="form-control" id="selectedDurationOfVisitTextHid"
                   name="Duration of Visit" />
