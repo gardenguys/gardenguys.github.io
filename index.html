@@ -125,8 +125,13 @@
 
       <p class="lead">Your Trusted Partners for Top-notch Gardeners and Premier Gardening Services!</p>
       <!-- <p><strong>Book your appointment:</strong></p> -->
-      <a href="#section-appointment" class="btn btn-lg btn-light"><i class="fa fa-leaf" aria-hidden="true"></i> Book
-        your appointment</a>
+      <a href="#section-appointment" class="btn btn-lg btn-dark text-white shadow-lg py-3 px-4 mr-2">
+        <i class="fa fa-calendar" aria-hidden="true"></i> Book Appointment
+      </a>
+      <a href="https://www.bagichaa.com/"  target="_blank" class="btn btn-lg btn-success text-white shadow-lg py-3 px-4">
+        🎉 Get Discounted Plants
+        <i class="fa fa-external-link-alt" aria-hidden="true" style="margin-left: 8px;"></i>
+      </a>
     </div>
   </section>
 
@@ -141,14 +146,7 @@
           <h3 class="m-3">Choose preferences</h3>
           <form id="packageCalculatorForm">
             <div class="form-row">
-              <div class="form-group col-md-4">
-                <label for="subscriptionPlan"><b>Subscription Plan:</b></label>
-                <select class="form-control" id="subscriptionPlan" name="subscriptionPlan">
-                  <option value="essentialCare">Essential Care (Basic)</option>
-                  <option value="ultimateCare">Ultimate Care (Premium)</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
+              <div class="form-group col-md-6">
                 <label for="durationOfVisit"><b>Time Duration:</b></label>
                 <select class="form-control" id="durationOfVisit" name="durationOfVisit">
                   <option value="miniVisit">1.5 Hours</option>
@@ -157,275 +155,36 @@
                   <option value="fullDay">Full day</option>
                 </select>
               </div>
-              <div class="form-group col-md-4">
-                <label for="durationOfSubscription"><b>Subscription Period:</b></label>
-                <select class="form-control" id="durationOfSubscription" name="durationOfSubscription">
-                  <option value="oneMonth">1 Month</option>
-                  <option value="threeMonths">3 Months</option>
-                  <option value="sixMonths">6 Months</option>
-                  <option value="twelveMonths">12 Months</option>
-                </select>
-              </div>
-              <div class="form-group col-md-4">
-                <label for="frequencyOfVisit"><b>Monthly Visit:</b></label>
-                <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-                  <option value="twiceAMonth">2 Times a Month</option>
-                  <option value="fourTimesAMonth">4 Times a Month (Most Popular)</option>
-                  <option value="eightTimesAMonth">8 Times a Month</option>
-                  <option value="twelveTimesAMonth">12 Times a Month</option>
-                  <option value="twentySixTimesAMonth">Full Month (Excluding Monday)</option>
-                </select>
+              <!-- Display total inline with the dropdown -->
+              <div class="form-group col-md-6 d-flex align-items-center justify-content-end">
+                <span id="actualTotalPrice" style="font-weight: bold; color: green; font-size: 1.5em;">₹ 0</span>
               </div>
             </div>
-          
+
             <!-- Use Bootstrap List Group -->
             <ul class="list-group list-group-flush mt-3">
               <li class="list-group-item d-flex justify-content-between align-items-center">
-                Total Amount:
                 <span>
-                  <span id="actualTotalPrice" style="font-weight: bold; color: green; font-size: 1.5em;">₹ 0</span>
+                  * Query visit: ₹ 200
                 </span>
               </li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                Cost per visit:
-                <span>
-                  <span id="effectiveCostPerVisit" style="font-weight: bold; color: grey"></span>
-                </span>
-              </li>
-              <li id="premiumChargeItem" class="list-group-item d-flex justify-content-between align-items-center" >
-                Premium Charge (per month):
-                <span>
-                  <span id="premiumCharge" style="font-weight: bold; color: grey">₹ 1000 </span>
-                </span>
-              </li>
-              <li class="list-group-item d-flex  align-items-center">
-                * Single visit: ₹ 700 for up to 3 hours of work<br>
-                * Query visit: ₹ 200
+              <li class="list-group-item d-flex align-items-center">
+                * Additional charges may apply for locations outside our standard service area.
               </li>
             </ul>
-          
+
             <div class="text-center">
-              <!-- Wrap the button inside a div with text-center class -->
               <!-- "Hire Gardener" button -->
-              <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf" aria-hidden="true"></i>
-                Hire a Gardener
+              <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn">
+                <i class="fa fa-leaf" aria-hidden="true"></i> Hire a Gardener
               </button>
             </div>
           </form>
-          
-          
+
+
+
         </div>
       </div>
-      <!--Subscription chart-->
-      <div class="container mb-4">
-          <h1 class="mb-4 mt-4 mb-sm-5 text-center">Subscription Plans</h1>
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-4 mb-4">
-              <div class="card card-outline-success">
-                <div class="card-header bg-success text-white text-center">
-                  <h2>Essential Care</h2>
-                  <!-- <h6>Comprehensive garden maintenance for active homeowners.</h6> -->
-                </div>
-                <div class="card-body">
-                  <p class="card-text text-left">Comprehensive garden maintenance for active homeowners.</p>
-                </div>
-                <ul class="list-group small ">
-                  <li class="list-group-item">✅ Pruning, Trimming, Aeration, Weed Control</li>
-                  <li class="list-group-item">✅ Basic Pesticide Application</li>
-                  <li class="list-group-item">✅ Regular Garden Cleanup</li>
-                  <li class="list-group-item">✅ Personalized Plant Care Tips</li>
-                  <li class="list-group-item text-muted">❌ Monthly Garden Expert Visit</li>
-                  <li class="list-group-item text-muted">❌ Full Pesticide Application</li>
-                  <li class="list-group-item text-muted">❌ Unlimited On-Call Consultation</li>
-                  <li class="list-group-item text-muted">❌ Priority Plant Delivery</li>
-                </ul>
-               
-                  <div class="card-footer text-center">
-                    <a href="tel:+917376787856" class="btn btn-success btn-lg">Call Us</a>
-                  </div>
-                
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="card card-outline-warning ">
-                <div class="card-header bg-warning text-white text-center">
-                  <h2>Ultimate Care</h2>
-                  <!-- <h6>Premium garden services for busy enthusiasts.</h6> -->
-                </div>
-                <div class="card-body">
-                  <p class="card-text text-left">Premium garden services for busy enthusiasts.</p>
-                </div>
-                <ul class="list-group small">
-                  <li class="list-group-item">✅ Pruning, Trimming, Aeration, Weed Control</li>
-                  <li class="list-group-item">✅ Basic Pesticide Application</li>
-                  <li class="list-group-item">✅ Regular Garden Cleanup</li>
-                  <li class="list-group-item">✅ Personalized Plant Care Tips</li>
-                  <li class="list-group-item">✅ Monthly Garden Expert Visit</li>
-                  <li class="list-group-item">✅ Full Pesticide Application</li>
-                  <li class="list-group-item">✅ Unlimited On-Call Consultation</li>
-                  <li class="list-group-item">✅ Priority Plant Delivery</li>
-                </ul>
-                <div class="card-footer text-center">
-                  <a href="tel:+917376787856" class="btn btn-warning btn-lg">Call Us</a>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-12 col-md-4 mb-4">
-              <div class="card card-outline-danger ">
-                <div class="card-header bg-danger text-white text-center">
-                  <h2>Enterprise</h2>
-                  <h4>$199.99 / year</h4>
-                </div>
-                <div class="card-body">
-                  <p class="card-text text-left">Perfect if you're a big company with many websites.</p>
-                </div>
-                <ul class="list-group small">
-                  <li class="list-group-item">100GB Storage</li>
-                  <li class="list-group-item">100 e-mails</li>
-                  <li class="list-group-item">50 domains</li>
-                  <li class="list-group-item">25GB bandwidth</li>
-                  <li class="list-group-item">Enhanced performance</li>
-                  
-                </ul>
-                <div class="card-footer">
-                  <button type="button" class="btn btn-danger btn-lg">Select</button>
-                </div>
-              </div>
-            </div> -->
-          </div>
-      </div>
-
-
-      <table class="table table-bordered border-warning text-dark">
-        <thead class="thead text-center">
-          <tr>
-            <th colspan="2">
-              <b style="font-size: large;">🌸 Our Garden Maintenance Package Includes 🌸</b>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <i class="fas fa-user-check"></i>
-              <strong>Garden Expert Consultation</strong>
-            </td>
-            <td> As part of our package, you'll enjoy regular consultation from our garden expert to provide valuable
-              advice on enhancing the beauty of your garden.</td>
-          </tr>
-
-          <tr>
-            <td>
-              <i class="fas fa-cut"></i>
-              <strong>Pruning and Trimming</strong>
-            </td>
-            <td>Meticulously prune and shape plants for healthy growth and enhanced aesthetics.</td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-bug"></i>
-              <strong>Pesticide Application</strong>
-            </td>
-            <td>Expert pest control to protect your garden.*</td>
-          </tr>
-
-          <tr>
-            <td>
-              <i class="fas fa-wind"></i>
-              <strong>Aeration</strong>
-            </td>
-            <td>Soil aeration for better root growth and nutrient absorption.</td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-seedling"></i>
-              <strong>Weed Control</strong>
-            </td>
-            <td>Weed control for a pristine garden. </td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-snowflake"></i>
-              <strong>Regular Cleanup</strong>
-            </td>
-            <td>Thoroughly clean garden, removing debris and leaves for a tidy look.</td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-seedling"></i>
-              <strong>Personalized Plant Care Tips</strong>
-            </td>
-            <td>Receive expert advice for better plant care and understanding.</td>
-          </tr>
-
-          <tr>
-            <th colspan="2" class="text-center">
-              <b style="font-size: large;">✨ Our Premium Package Includes ✨</b>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              🌿 <strong>Monthly Garden Expert Visit</strong>
-            </td>
-            <td>Receive one mandatory monthly visit from our garden expert for design and consultation.</td>
-          </tr>
-          <tr>
-            <td>
-              🐛 <strong>Inclusive Pesticides and Fungicides</strong>
-            </td>
-            <td>All necessary pesticides and fungicides are covered in the package.</td>
-          </tr>
-          <tr>
-            <td>
-              📞 <strong>Unlimited On-Call Consultation</strong>
-            </td>
-            <td>Enjoy unlimited consultation with our garden experts over the phone.</td>
-          </tr>
-            <th colspan="2" class="text-center">
-              <b style="font-size: large;">🚫 Not Included in Our Package, Additional Charges 🚫</b>
-            </th>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-cut"></i> <strong>Grass Cutting</strong>
-            </td>
-            <td>Grass cutting services are not included if the area exceeds 250 square feet, or if the client has a
-              manual grass cutter. If the client has an electric grass cutting machine, our gardener can cut the grass
-              within the service time. Otherwise, charges are applicable with following rates:
-
-              <ul>
-                <li>0-500 Sqft: Rs 2 per Sqft</li>
-                <li>500-1000 Sqft: Rs 1.5 per Sqft</li>
-                <li>More than 1000 Sqft: Rs 1 per Sqft</li>
-              </ul>
-
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-cut"></i> <strong>Tree Removal And Cutting</strong>
-            </td>
-            <td>Cutting and shaping of trees with a height exceeding 10 feet will incur an additional charge. Please
-              contact us for a detailed quote.</td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-bug"></i> <strong>*Additional Treatments</strong>
-            </td>
-            <td>Basic pesticide applications are included in limited quantities. Extra or specific treatments will incur
-              additional charges.</td>
-          </tr>
-          <tr>
-            <td>
-              <i class="fas fa-bug"></i> <strong>Non-gardening related services</strong>
-            </td>
-            <td>Our dedicated gardeners are available exclusively for gardening tasks. Please refrain from requesting
-              non-gardening related services.</td>
-          </tr>
-
-        </tbody>
-      </table>
-
       <!-- Bootstrap Modal (Popup) -->
       <div class="modal fade text-white" id="confirmationModal" tabindex="-1" role="dialog"
         aria-labelledby="confirmationModalLabel" aria-hidden="true">
@@ -443,10 +202,9 @@
               <!-- Content inside the modal -->
               <p>You have selected the following options:</p>
               <ul>
-                <li><span id="selectedSubscriptionPlanText"></span></li>
+
                 <li><span id="selectedDurationOfVisitText"></span></li>
-                <li><span id="selecteddurationOfSubscriptionText"></span></li>
-                <li><span id="selectedFrequencyOfVisitText"></span></li>
+
                 <li><span id="discountedTotalPriceModal"></span></li>
               </ul>
 
@@ -467,7 +225,7 @@
 
                 <!-- take other input as well to send via form-->
                 <input type="hidden" class="form-control" id="selectedSubscriptionPlanTextHid"
-                name="Subscription Plan" />
+                  name="Subscription Plan" />
 
                 <input type="hidden" class="form-control" id="selectedDurationOfVisitTextHid"
                   name="Duration of Visit" />
@@ -493,113 +251,6 @@
   </section>
 
   <div class="container">
-    <section id="section-why-hire-us">
-      <h2 class="display-4 text-center text-dark mb-5">Why Hire Garden Guys</h2>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-handshake fa-4x mb-4"></i>
-                <h4 class="card-title">Reliable Service</h4>
-                <p class="card-text">Consistent and dependable garden care for worry-free maintenance.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-headset fa-4x mb-4"></i>
-                <h4 class="card-title">Customer Support</h4>
-                <p class="card-text">Excellent assistance and support, prioritizing your needs.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-dollar-sign fa-4x mb-4"></i>
-                <h4 class="card-title">Transparent Pricing</h4>
-                <p class="card-text">Clear and straightforward pricing for excellent value.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-tree fa-4x mb-4"></i>
-                <h4 class="card-title">Quality Assurance</h4>
-                <p class="card-text">Top-notch services for your garden's best care.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-
-
-
-
-    <!-- Process -->
-    <section id="section-process">
-      <h2 class="display-4 text-center text-dark mb-5">Our process</h2>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="far fa-calendar-alt fa-4x mb-4"></i>
-                <h3 class="card-title mb-4"> <span class="badge badge-dark">Step 1</span> </h3>
-                <h4 class="card-title">Book your appointment</h4>
-                <p class="card-text">Book an appointment with our experts to inspect your garden or balcony area and get
-                  a personalized plan for your perfect garden.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-
-                <i class="fas fa-pencil-ruler fa-4x mb-4"></i>
-
-                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 2</span></h3>
-                <h4 class="card-title">Analyze Your Space</h4>
-                <p class="card-text">Our skilled team will visit your location and carefully analyze your space to
-                  determine the best garden plants, unique designs, and pots that fit your specific needs and style.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-tools fa-4x mb-4"></i>
-                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 3</span></h3>
-                <h4 class="card-title">Professional Installation</h4>
-                <p class="card-text">Our experienced team will install your selected plants, unique designs, and pots
-                  with precision and attention to detail, creating a beautiful outdoor space that you will love.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 mb-4">
-            <div class="card shadow h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-seedling fa-4x mb-4"></i>
-                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 4</span></h3>
-                <h4 class="card-title">Enjoy Your Beautiful Garden</h4>
-                <p class="card-text">Relax and enjoy your stunning garden oasis that brings the beauty of nature into
-                  your life. With our expertise and care, your garden will thrive and continue to flourish throughout
-                  the year.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Services -->
     <section id="section-services">
       <div class="container">
@@ -667,6 +318,105 @@
               to ensure they thrive.</p>
             <a href="#section-appointment" class="btn btn-lg btn-dark"><i class="fa fa-leaf" aria-hidden="true"></i>
               Book your appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="section-why-hire-us">
+      <h2 class="display-4 text-center text-dark mb-5">Why Hire Garden Guys</h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-handshake fa-4x mb-4"></i>
+                <h4 class="card-title">Reliable Service</h4>
+                <p class="card-text">Consistent and dependable garden care for worry-free maintenance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-headset fa-4x mb-4"></i>
+                <h4 class="card-title">Customer Support</h4>
+                <p class="card-text">Excellent assistance and support, prioritizing your needs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-dollar-sign fa-4x mb-4"></i>
+                <h4 class="card-title">Transparent Pricing</h4>
+                <p class="card-text">Clear and straightforward pricing for excellent value.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-tree fa-4x mb-4"></i>
+                <h4 class="card-title">Quality Assurance</h4>
+                <p class="card-text">Top-notch services for your garden's best care.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="section-process">
+      <h2 class="display-4 text-center text-dark mb-5">Our process</h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="far fa-calendar-alt fa-4x mb-4"></i>
+                <h3 class="card-title mb-4"> <span class="badge badge-dark">Step 1</span> </h3>
+                <h4 class="card-title">Book your appointment</h4>
+                <p class="card-text">Book an appointment with our experts to inspect your garden or balcony area and get
+                  a personalized plan for your perfect garden.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+
+                <i class="fas fa-pencil-ruler fa-4x mb-4"></i>
+
+                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 2</span></h3>
+                <h4 class="card-title">Analyze Your Space</h4>
+                <p class="card-text">Our skilled team will visit your location and carefully analyze your space to
+                  determine the best garden plants, unique designs, and pots that fit your specific needs and style.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-tools fa-4x mb-4"></i>
+                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 3</span></h3>
+                <h4 class="card-title">Professional Installation</h4>
+                <p class="card-text">Our experienced team will install your selected plants, unique designs, and pots
+                  with precision and attention to detail, creating a beautiful outdoor space that you will love.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-4">
+            <div class="card shadow h-100">
+              <div class="card-body text-center">
+                <i class="fas fa-seedling fa-4x mb-4"></i>
+                <h3 class="card-title mb-4"><span class="badge badge-dark">Step 4</span></h3>
+                <h4 class="card-title">Enjoy Your Beautiful Garden</h4>
+                <p class="card-text">Relax and enjoy your stunning garden oasis that brings the beauty of nature into
+                  your life. With our expertise and care, your garden will thrive and continue to flourish throughout
+                  the year.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -791,13 +541,7 @@
                 aria-describedby="name" required id="input-name" />
             </div>
           </div>
-          <!-- <div class="col-12 col-sm-6">
-            <div class="form-group">
-              <label for="input-email">Your Email:</label>
-              <input type="email" class="form-control" name="email" placeholder="mail@example.com"
-                aria-label="Your email" aria-describedby="email" required id="input-email" />
-            </div>
-          </div> -->
+
           <div class="col-12 col-sm-6">
             <div class="form-group">
               <label for="number">Phone Number:</label>
@@ -805,24 +549,7 @@
                 aria-describedby="number" required id="number" />
             </div>
           </div>
-          <!-- <div class="col-12 col-sm-6">
-            <div class="form-group">
-              <label for="date-input">Appointment Date:</label>
-              <input type="date" class="form-control" name="Date" placeholder="dd-mm-yyyy" aria-label="dd-mm-yyyy"
-                aria-describedby="date" required id="date-input" />
-            </div>
-          </div> -->
-          <!-- <div class="col-12 col-sm-6">
-            <div class="form-group">
-              <label for="time">Time</label>
-              <select class="form-control custom-select" id="time" name="time" required>
-                <option selected value="Morning (8am to 11 am)">Morning (8am to 11 am)</option>
-                <option value="Afternoon (12pm to 3 pm)">Afternoon (12pm to 3 pm)</option>
-                <option value="Evening (3 pm to 6 pm)">Evening (3 pm to 6 pm)</option>
 
-              </select>
-            </div>
-          </div> -->
 
           <div class="col-12 col-sm-6">
             <div class="form-group">
@@ -831,6 +558,7 @@
 
                 <option selected value="Garden Installation">Garden Installation</option>
                 <option value="Garden Maintenance">Garden Maintenance</option>
+                <option value="Grass Cutting">Grass Cutting</option>
                 <option value="Disease and pest control">Disease and pest control</option>
                 <option value="Garden decoration">Garden decoration</option>
                 <option value="Custom service">Custom service (Get a call from us)</option>
@@ -838,15 +566,6 @@
               </select>
             </div>
           </div>
-
-          <!-- <div class="col-12 col-sm-6">
-            <div class="form-group">
-              <label for="input-address">Your address:</label>
-              <textarea id="input-address" class="form-control" rows="3" name="address"
-                placeholder="Write your address here..." aria-label="Your address"
-                aria-describedby="address"></textarea>
-            </div>
-          </div> -->
 
           <div class="col-12 col-sm-6">
             <div class="form-group">

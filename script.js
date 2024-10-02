@@ -1,23 +1,13 @@
-var DISCOUNTED_PRICE = 0;
-
+var actualTotalPrice = 0;
 function calculatePrice() {
-  var subscriptionPlan = document.getElementById("subscriptionPlan").value;
-  var durationOfVisit = document.getElementById("durationOfVisit").value;
-  var frequencyOfVisit = document.getElementById("frequencyOfVisit");
-  var durationOfSubscription = document.getElementById(
-    "durationOfSubscription"
-  ).value;
 
-  var actualTotalPrice = 0;
-  var freq = 1;
-  var duration = 1;
+  var durationOfVisit = document.getElementById("durationOfVisit").value;
+
 
   var miniVisit = 350;
   var lessThanHalfDayPrice = 500;
   var halfDayPrice = 800;
   var fullDayPrice = 1500;
-
-  var expertCharge = 1000;
 
   // Set actualTotalPrice based on selected options
   if (durationOfVisit == "miniVisit") {
@@ -29,57 +19,8 @@ function calculatePrice() {
   } else if (durationOfVisit === "fullDay") {
     actualTotalPrice = fullDayPrice;
   }
-
-  // Calculate the total price
-  if (frequencyOfVisit.value === "twiceAMonth") {
-    freq = 2;
-    actualTotalPrice += 100;
-  } else if (frequencyOfVisit.value === "fourTimesAMonth") {
-    freq = 4;
-  } else if (frequencyOfVisit.value === "eightTimesAMonth") {
-    freq = 8;
-  } else if (frequencyOfVisit.value === "twelveTimesAMonth") {
-    freq = 12;
-  } else if (frequencyOfVisit.value == "twentySixTimesAMonth") {
-    freq = 26;
-  }
-
-  // Adjust total price based on contract duration
-  if (durationOfSubscription === "oneMonth") {
-    duration = 1;
-  } else if (durationOfSubscription === "threeMonths") {
-    duration = 3;
-  } else if (durationOfSubscription === "sixMonths") {
-    duration = 6;
-  } else if (durationOfSubscription === "twelveMonths") {
-    duration = 12;
-  }
-
-  // Add 1000 to total if subscription plan is "ultimateCare"
-
-  if (subscriptionPlan === "ultimateCare") {
-    document.getElementById("premiumCharge").textContent = `₹ ${expertCharge}`;
-    expertCharge *= duration;
-  } else {
-    expertCharge = 0;
-    document.getElementById("premiumCharge").textContent = `₹ ${expertCharge}`;
-  }
-
-  document.getElementById("actualTotalPrice").style.display = "inline";
-
-  actualTotalPrice = actualTotalPrice * freq * duration + expertCharge;
-
-  var effectiveCostPerVisit = Math.round(
-    (actualTotalPrice - expertCharge) / (freq * duration)
-  );
-
-  DISCOUNTED_PRICE = Math.round(actualTotalPrice);
-
   document.getElementById("actualTotalPrice").textContent =
     "₹ " + Math.round(actualTotalPrice);
-
-  document.getElementById("effectiveCostPerVisit").textContent =
-    "₹ " + Math.round(effectiveCostPerVisit);
 }
 
 // Automatically calculate and populate the total prices when the form is changed
@@ -94,37 +35,17 @@ calculatePrice();
 $(document).ready(function () {
   $("#hireGardenerBtn").click(function () {
     // Get selected values from the form
-    const subscriptionPlan = $("#subscriptionPlan option:selected").text();
     const durationOfVisit = $("#durationOfVisit option:selected").text();
-    const durationOfSubscription = $(
-      "#durationOfSubscription option:selected"
-    ).text();
-    const frequencyOfVisit = $("#frequencyOfVisit option:selected").text();
-
     // Display the selected values in the popup and style them as green
-    $("#selectedSubscriptionPlanText").html(
-      "Subscription Plan: <strong>" + subscriptionPlan + "</strong>"
-    );
     $("#selectedDurationOfVisitText").html(
       "Duration of Visit: <strong>" + durationOfVisit + "</strong>"
     );
-    $("#selecteddurationOfSubscriptionText").html(
-      "Duration of Contract: <strong>" + durationOfSubscription + "</strong>"
-    );
-    $("#selectedFrequencyOfVisitText").html(
-      "Frequency of Visit: <strong>" + frequencyOfVisit + "</strong>"
-    );
     $("#discountedTotalPriceModal").html(
-      "Total: <strong>₹ " + DISCOUNTED_PRICE + "</strong>"
+      "Total: <strong>₹ " + actualTotalPrice + "</strong>"
     );
-
     // Set hidden form values
-
-    $("#selectedsubscriptionPlanTextHid").val(durationOfVisit);
     $("#selectedDurationOfVisitTextHid").val(durationOfVisit);
-    $("#selecteddurationOfSubscriptionTextHid").val(durationOfSubscription);
-    $("#selectedFrequencyOfVisitTextHid").val(frequencyOfVisit);
-    $("#discountedTotalPriceModalHid").val(DISCOUNTED_PRICE);
+    $("#discountedTotalPriceModalHid").val(actualTotalPrice);
 
     // Show the popup
     $("#confirmationModal").modal("show");
