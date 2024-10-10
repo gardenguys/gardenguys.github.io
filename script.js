@@ -2,17 +2,12 @@ var actualTotalPrice = 0;
 function calculatePrice() {
 
   var durationOfVisit = document.getElementById("durationOfVisit").value;
-
-
-  var miniVisit = 350;
-  var lessThanHalfDayPrice = 500;
-  var halfDayPrice = 800;
+  var lessThanHalfDayPrice = 550;
+  var halfDayPrice = 850;
   var fullDayPrice = 1500;
 
   // Set actualTotalPrice based on selected options
-  if (durationOfVisit == "miniVisit") {
-    actualTotalPrice = miniVisit;
-  } else if (durationOfVisit == "lessThanHalfDay") {
+if (durationOfVisit == "lessThanHalfDay") {
     actualTotalPrice = lessThanHalfDayPrice;
   } else if (durationOfVisit === "halfDay") {
     actualTotalPrice = halfDayPrice;
